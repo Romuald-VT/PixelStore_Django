@@ -4,7 +4,7 @@ from django.contrib.auth.admin import UserAdmin
 
 # Register your models here.
 
-class AccountAdmin(UserAdmin):
+class AccountAdmin(admin.ModelAdmin):
     
     list_display = ('email','first_name','last_name','username','last_login','date_joined','is_active',)
     list_display_links =('email','first_name','last_name',)
@@ -13,6 +13,7 @@ class AccountAdmin(UserAdmin):
     filter_horizontal =()
     list_filter = ()
     fiedsets= ()
+    exclude=('groups','user_permissions','is_superuser')
 
  
 admin.site.register(Account,AccountAdmin)
